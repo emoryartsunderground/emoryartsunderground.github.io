@@ -9,3 +9,5 @@ excerpt: Short excerpt about the post
 Check out this logo:
 
 ![Emory Arts Underground Logo](/pictures/eau_logo.jpeg)
+
+Here is more text for the post.
