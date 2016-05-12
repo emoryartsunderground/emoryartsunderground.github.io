@@ -1,0 +1,13 @@
+{% for post in site.posts %}
+    {% cycle 'add row' : '<div class="row">', nil, nil %}
+        <div class="col-sm-4">
+            <div class="preview-panel">
+                <a href="{{ post.url | prepend: site.baseurl }}" style="text-decoration: none;">
+                    <img style="width: 100%;" src="{{ post.preview | prepend: site.baseurl }}">
+                	<div class="prev-post-title"><h3>{{ post.title }}</h3><span>{{ post.excerpt }}</span></div>
+                </a>
+           </div>
+        </div>
+{% cycle 'end row' : nil, nil, '</div>' %}
+{% endfor %}
+{% cycle 'end row' : nil, '</div>', '</div>' %}

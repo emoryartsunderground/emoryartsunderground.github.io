@@ -1,2 +1,5 @@
-# emoryartsunderground.github.io
-Emory Arts Underground website
+# urban-theme
+
+A jekyll theme for visual artists
+
+Live-Demo: http://narkotyk.net/
