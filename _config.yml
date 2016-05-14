@@ -2,9 +2,7 @@
 title: Emory Arts Underground
 email: emoryartsunderground@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Emory Arts Underground is a student-run arts organization at Emory University in Atlanta, GA that aims to increase the accessibility of arts education and to uncover the underground arts culture on campus.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 # twitter_username: jekyllrb

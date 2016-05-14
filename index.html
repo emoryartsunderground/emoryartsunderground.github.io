@@ -3,39 +3,20 @@ layout: default
 ---
 
 <div style="text-align: center;">
-	{% assign rawcats = "" %}
-	{% for post in site.posts %}
-		{% assign cat = post.category | append:'|' %}
-		{% assign rawcats = rawcats | append:cat %}
-	{% endfor %}
-	{% assign rawcats = rawcats | split:'|' | sort %}
-
-	{% assign categories = "" %}
-	{% for category in rawcats %}
-		{% if category != "" %}
-			{% if categories == "" %}
-				{% assign categories = category %}
-			{% endif %}
-			{% unless categories contains category %}
-				{% assign categories = categories | join:'|' | append:'|' | append:category | split:'|' %}
-			{% endunless %}
+	{% for page in site.pages %}
+		{% if page.layout == "category" %}
+			{% cycle 'add row' : '<div class="row">', nil, nil %}
+			<div class="col-sm-4">
+				<div class="preview-panel">
+					<a href="{{ page.url }}" style="text-decoration: none;">
+						<img style="width: 100%;" src="{{ page.preview }}">
+	<!-- 					<div class="prev-post-title"><h3>{{ category }}</h3></div> -->
+					</a>
+			   </div>
+			</div>
+			{% cycle 'end row' : nil, nil, '</div>' %}
 		{% endif %}
 	{% endfor %}
+	{% cycle 'end row' : nil, '</div>', '</div>' %}
 
-	{% for category in categories %}
-		<h2>{{ category }}</h2>
-		{% for post in site.categories[category] %}
-			{% cycle 'add row' : '<div class="row">', nil, nil %}
-				<div class="col-sm-4">
-					<div class="preview-panel">
-						<a href="{{ post.url | prepend: site.baseurl }}" style="text-decoration: none;">
-							<img style="width: 100%;" src="{{ post.preview | prepend: site.baseurl }}">
-							<div class="prev-post-title"><h3>{{ post.title }}</h3><span>{{ post.excerpt }}</span></div>
-						</a>
-				   </div>
-				</div>
-			{% cycle 'end row' : nil, nil, '</div>' %}
-		{% endfor %}
-		{% cycle 'end row' : nil, '</div>', '</div>' %}
-	{% endfor %}
 </div>
